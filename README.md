@@ -5,9 +5,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
 [![WebMCP Standard](https://img.shields.io/badge/WebMCP-v1.0%20Standard-blue.svg)](https://webmachinelearning.github.io/webmcp/)
-[![React 18](https://img.shields.io/badge/React-18.3.1-61dafb.svg)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6.svg)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
+[![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://agrimcp.pages.dev)
+[![Live URL](https://img.shields.io/badge/Live%20Demo-agrimcp.cortexmatter.com-success.svg)](https://agrimcp.cortexmatter.com)
+
+**🌐 Live Demo:** [https://agrimcp.cortexmatter.com](https://agrimcp.cortexmatter.com) *(Backup: [https://agrimcp.pages.dev](https://agrimcp.pages.dev))*  
+**📦 GitHub Repository:** [https://github.com/jaime-sql/WebMCPHackChallenge](https://github.com/jaime-sql/WebMCPHackChallenge)
 
 ---
 
