@@ -36,6 +36,63 @@ When an agent (via **ChatGPT's in-app browser** or **Google Chrome with `#enable
 
 ---
 
+## 🏛️ System Architecture
+
+AgriMCP is architected as an **agent-native, client-side reactive system**. It eliminates server-side latency and external API rate limits by running the entire agronomic calculation engine and WebMCP registry directly inside the browser session.
+
+```mermaid
+flowchart TB
+    subgraph AgentEnvironment ["AI Agent Environment"]
+        AgentChrome["Google Chrome<br/>(chrome://flags/#enable-webmcp-testing)"]
+        AgentChatGPT["ChatGPT In-App Browser<br/>(OpenAI Browser Platform)"]
+        AgentSim["In-App Agent Console<br/>(Built-in WebMCP Inspector)"]
+    end
+
+    subgraph WebMCPBridge ["WebMCP Protocol Bridge"]
+        ModelContext["document.modelContext.registerTool()"]
+        ToolRegistry["5 Structured Agronomic Tools<br/>• analyze_suitability<br/>• schedule_crop<br/>• simulate_shock<br/>• optimize_companions<br/>• generate_care_plan"]
+        ExecutionLogger["Performance & Latency Logger<br/>(Input/Output JSON Tracing)"]
+    end
+
+    subgraph AgronomicCore ["Client Agronomic Engine"]
+        SuitabilityCalc["Soil pH & NPK Matcher<br/>(Crop Tolerance Thresholds)"]
+        GDDCalc["Growing Degree Day (GDD) Accumulator<br/>(Thermal Heat Units)"]
+        ShockSim["Climate Shock Simulator<br/>(Frost, Drought, Heatwave)"]
+        CompanionEngine["Synergistic Companion Matcher<br/>(Allelopathic Conflict Detector)"]
+    end
+
+    subgraph ReactiveCanvas ["Reactive UI Canvas (React 18 + Tailwind)"]
+        FarmGrid["Interactive Farm Parcels<br/>(6 Topographic Plots + Gauges)"]
+        TimelineGantt["Cultivation & Harvest Timeline<br/>(5-Phase Biological Gantt)"]
+        ClimateWidget["Regional Microclimate Widget<br/>(USDA 6b/7a/8b/9a Curves)"]
+        CareModal["12-Week Operational Checklist"]
+    end
+
+    subgraph EdgeInfrastructure ["Edge Hosting & CDN"]
+        Cloudflare["Cloudflare Pages & Edge Network<br/>agrimcp.cortexmatter.com • agrimcp.pages.dev"]
+    end
+
+    AgentChrome -->|Discovers & Invokes| ModelContext
+    AgentChatGPT -->|Discovers & Invokes| ModelContext
+    AgentSim -->|Direct Tool Dispatch| ToolRegistry
+
+    ModelContext --> ToolRegistry
+    ToolRegistry --> ExecutionLogger
+    ToolRegistry --> AgronomicCore
+
+    AgronomicCore -->|State Mutation| ReactiveCanvas
+    ReactiveCanvas -.->|Visual Feedback| AgentSim
+
+    EdgeInfrastructure -->|Serves Static SPA Bundle| ReactiveCanvas
+```
+
+### Architectural Highlights:
+1. **Zero-Latency In-Browser Execution:** Rather than routing agent tool calls through third-party webhooks, tools execute in `< 10ms` in-browser, updating React state and DOM nodes instantly.
+2. **Deterministic Dual-Mode Safety:** Native WebMCP is automatically detected and leveraged. If testing on a standard browser without origin trials or flags, the embedded Agent Console intercepts and dispatches the exact same registered tools with full parameter validation.
+3. **Multi-Factor Agronomic Calculations:** Computations account for non-linear soil pH degradation, GDD base temperatures, frost vulnerability offsets, and allelopathic plant interactions.
+
+---
+
 ## 🛠️ WebMCP Implementation (`document.modelContext`)
 
 AgriMCP registers **5 non-trivial tools** directly into the browser's model context:
