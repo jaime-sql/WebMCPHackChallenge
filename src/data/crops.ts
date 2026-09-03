@@ -119,7 +119,7 @@ export const CROPS: Record<string, CropProfile> = {
   blueberry: {
     id: 'blueberry',
     name: 'Highbush Blueberry',
-    emoji: '🫐',
+    emoji: '🫐', // or universal display
     category: 'fruit',
     optimalPH: { min: 4.5, max: 5.5 },
     moistureNeed: 'moderate',

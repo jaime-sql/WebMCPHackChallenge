@@ -8,6 +8,7 @@ import { ClimateWidget } from './components/ClimateWidget';
 import { CarePlanModal } from './components/CarePlanModal';
 import { AgentSimulator } from './components/AgentSimulator';
 import { Parcel } from './types';
+import { startProductTour } from './utils/tour';
 import { Bot, Sparkles, BookOpen, Compass } from 'lucide-react';
 
 export const AppContent: React.FC = () => {
@@ -58,12 +59,13 @@ export const AppContent: React.FC = () => {
         onToggleSimulator={() => setSimulatorOpen((prev) => !prev)}
         simulatorOpen={simulatorOpen}
         hasNativeWebMCP={hasNativeWebMCP}
+        onStartTour={() => startProductTour(() => setSimulatorOpen(true))}
       />
 
       {/* Main Canvas Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-6">
         {/* Hackathon Judge Hero Banner */}
-        <div className="p-4 rounded-2xl bg-gradient-to-r from-leaf-950/70 via-stone-900 to-stone-900 border border-leaf-800/40 relative overflow-hidden shadow-lg">
+        <div id="hero-banner" className="p-4 rounded-2xl bg-gradient-to-r from-leaf-950/70 via-stone-900 to-stone-900 border border-leaf-800/40 relative overflow-hidden shadow-lg">
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
@@ -86,6 +88,13 @@ export const AppContent: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0 w-full md:w-auto">
+              <button
+                onClick={() => startProductTour(() => setSimulatorOpen(true))}
+                className="px-3.5 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-700 font-semibold text-xs flex items-center justify-center gap-2 shadow-md transition"
+              >
+                <Compass className="w-4 h-4 text-emerald-400" />
+                <span>Interactive Tour</span>
+              </button>
               <button
                 onClick={() => setSimulatorOpen(true)}
                 className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-leaf-600 to-leaf-500 hover:from-leaf-500 hover:to-leaf-400 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-leaf-900/40 transition transform active:scale-95"

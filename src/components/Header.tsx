@@ -1,18 +1,20 @@
 import React from 'react';
 import { useFarm } from '../context/FarmContext';
 import { CLIMATE_ZONES } from '../data/climate';
-import { Sprout, Bot, ShieldAlert, CloudSun } from 'lucide-react';
+import { Sprout, Bot, ShieldAlert, CloudSun, Compass } from 'lucide-react';
 
 interface HeaderProps {
   onToggleSimulator: () => void;
   simulatorOpen: boolean;
   hasNativeWebMCP: boolean;
+  onStartTour?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onToggleSimulator,
   simulatorOpen,
   hasNativeWebMCP,
+  onStartTour,
 }) => {
   const { state, dispatch } = useFarm();
 
@@ -100,8 +102,21 @@ export const Header: React.FC<HeaderProps> = ({
             <span>{hasNativeWebMCP ? 'WebMCP Native' : 'WebMCP Dual-Mode'}</span>
           </div>
 
+          {/* Tour Button */}
+          {onStartTour && (
+            <button
+              onClick={onStartTour}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 hover:bg-emerald-900 border border-emerald-700/60 text-emerald-300 font-medium text-xs transition shadow-sm"
+              title="Interactive Tour of AgriMCP"
+            >
+              <Compass className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Tour</span>
+            </button>
+          )}
+
           {/* Toggle Agent Simulator Drawer */}
           <button
+            id="agent-console-btn"
             onClick={onToggleSimulator}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-medium text-xs transition-all shadow-md ${
               simulatorOpen

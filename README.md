@@ -6,10 +6,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
 [![WebMCP Standard](https://img.shields.io/badge/WebMCP-v1.0%20Standard-blue.svg)](https://webmachinelearning.github.io/webmcp/)
 [![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://agrimcp.pages.dev)
-[![Live URL](https://img.shields.io/badge/Live%20Demo-agrimcp.pages.dev-success.svg)](https://agrimcp.pages.dev)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-agrimcp.pages.dev-success.svg)](https://agrimcp.pages.dev)
 
 **🌐 Live Demo:** [https://agrimcp.pages.dev](https://agrimcp.pages.dev)  
 **📦 GitHub Repository:** [https://github.com/jaime-sql/WebMCPHackChallenge](https://github.com/jaime-sql/WebMCPHackChallenge)
+
+![AgriMCP Hero Banner](public/hero-banner.jpg)
 
 ---
 

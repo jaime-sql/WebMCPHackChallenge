@@ -12,7 +12,7 @@ export const CultivationTimeline: React.FC = () => {
   const plantedParcels = state.parcels.filter((p) => p.currentCrop && p.sowingDate);
 
   return (
-    <section className="bg-stone-900/70 border border-stone-800 rounded-xl p-4 space-y-4">
+    <section id="cultivation-timeline-section" className="bg-stone-900/70 border border-stone-800 rounded-xl p-4 space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
           <h2 className="text-base font-bold text-white flex items-center gap-2">
