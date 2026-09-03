@@ -6,9 +6,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
 [![WebMCP Standard](https://img.shields.io/badge/WebMCP-v1.0%20Standard-blue.svg)](https://webmachinelearning.github.io/webmcp/)
 [![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://agrimcp.pages.dev)
-[![Live URL](https://img.shields.io/badge/Live%20Demo-agrimcp.cortexmatter.com-success.svg)](https://agrimcp.cortexmatter.com)
+[![Live URL](https://img.shields.io/badge/Live%20Demo-agrimcp.pages.dev-success.svg)](https://agrimcp.pages.dev)
 
-**🌐 Live Demo:** [https://agrimcp.cortexmatter.com](https://agrimcp.cortexmatter.com) *(Backup: [https://agrimcp.pages.dev](https://agrimcp.pages.dev))*  
+**🌐 Live Demo:** [https://agrimcp.pages.dev](https://agrimcp.pages.dev)  
 **📦 GitHub Repository:** [https://github.com/jaime-sql/WebMCPHackChallenge](https://github.com/jaime-sql/WebMCPHackChallenge)
 
 ---
@@ -69,7 +69,7 @@ flowchart TB
     end
 
     subgraph EdgeInfrastructure ["Edge Hosting & CDN"]
-        Cloudflare["Cloudflare Pages & Edge Network<br/>agrimcp.cortexmatter.com • agrimcp.pages.dev"]
+        Cloudflare["Cloudflare Pages & Edge Network<br/>agrimcp.pages.dev"]
     end
 
     AgentChrome -->|Discovers & Invokes| ModelContext
