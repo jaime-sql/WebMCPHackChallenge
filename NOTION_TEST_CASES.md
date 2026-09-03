@@ -2,7 +2,7 @@
 *Copy or Import directly into Notion (`Import -> Markdown`)*
 
 > **Target Application:** AgriMCP (WebMCP Hackathon)  
-> **Live URL:** https://agrimcp.cortexmatter.com (or https://agrimcp.pages.dev)  
+> **Live URL:** https://agrimcp.pages.dev  
 > **Repository:** https://github.com/jaime-sql/WebMCPHackChallenge  
 > **Standard:** WebMCP `document.modelContext.registerTool()`
 
